@@ -1,10 +1,11 @@
 import React from 'react';
-import {Layout, Menu} from "antd";
-import {Link, Outlet} from "react-router-dom";
-import {Content, Header} from "antd/es/layout/layout";
+import {Layout} from "antd";
+import {Outlet} from "react-router-dom";
+import {Content} from "antd/es/layout/layout";
 import HeaderApp from "./HeaderApp";
 
 const LayoutRouter = () => {
+
     return (
         <Layout className="layout">
             <HeaderApp/>

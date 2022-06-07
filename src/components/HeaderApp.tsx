@@ -1,32 +1,27 @@
 import React from 'react';
-import {Menu} from "antd";
-import {Link} from "react-router-dom";
+import {Col, Menu, Row} from "antd";
 import {Header} from "antd/es/layout/layout";
+import CustomLink from "./CustomLink";
 
 const HeaderApp = () => {
+
+    const items = [
+        {label: <CustomLink to={'/'} children={'Home'}/>, key: 'home', },
+        {label: <CustomLink to={'/blog'} children={'Blog'}/>, key: 'blog', },
+        {label: <CustomLink to={'/about'} children={'About'}/>, key: 'about', },
+    ]
+
     return (
         <div>
             <Header>
-                <div className="logo"/>
-                <Menu theme="dark"
-                      mode="horizontal"
-                      defaultSelectedKeys={['2']}>
-                    <Menu.Item>
-                        <Link to={'/'}>
-                            Home
-                        </Link>
-                    </Menu.Item>
-                    <Menu.Item>
-                        <Link to={'/blog'}>
-                            Blog
-                        </Link>
-                    </Menu.Item>
-                    <Menu.Item>
-                        <Link to={'/about'}>
-                            About
-                        </Link>
-                    </Menu.Item>
-                </Menu>
+                <Row>
+                    <Col span={4} offset={10}>
+                        <Menu theme="dark"
+                              mode="horizontal"
+                              defaultSelectedKeys={['2']}
+                              items = {items}/>
+                    </Col>
+                </Row>
             </Header>
         </div>
     );
