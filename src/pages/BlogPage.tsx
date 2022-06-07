@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {AxiosResponse} from "axios";
 import {PostType} from "../types/types";
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const axios = require('axios')
 
@@ -14,11 +14,11 @@ const BlogPage = () => {
             .then((response:AxiosResponse<Array<PostType>>) => setPosts(response.data))
     },[])
 
-    console.log(posts)
 
     return (
         <div>
             <h2>Our News</h2>
+            <Link to={'/blog/new'}>Create a post</Link>
             {
                 posts.map((el)=><Link to={`/blog/${el.id}`} key={el.id}>
                     <li>

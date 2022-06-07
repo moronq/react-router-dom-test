@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {Link, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import {PostType} from "../types/types";
 import {AxiosResponse} from "axios";
+import Button from 'antd/lib/button';
 
 const axios = require('axios')
 
@@ -13,8 +14,12 @@ const SinglePage = () => {
             .then((response:AxiosResponse<PostType>) => setPost(response.data) )
     },[id])
 
+    const navigate = useNavigate()
+    const goBack = () => navigate(-1)
+
     return (
         <div>
+            <Button onClick={goBack}>Go Back</Button>
             {post &&
             <>
                 <h2>{post.title}</h2>
